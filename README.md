@@ -18,7 +18,11 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 
 ## Tecnologias usadas
 
-:lock: Em progresso...
+* Front-end:
+    * :lock: Em progresso...
+
+* Back-end:
+    * :lock: Em progresso...
 
 ## Iterações
 
@@ -26,11 +30,7 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 
 ## Como rodar
 
-* Front-end:
-    * :lock: Em progresso...
-
-* Back-end:
-    * :lock: Em progresso...
+:lock: Em progresso...
 ## Licença
 
 :lock: Em progresso...
