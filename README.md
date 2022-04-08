@@ -16,6 +16,18 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 |lpcb2|adrvs|gpsm|jfss2|
 |--|--|--|--|
 
+## Tecnologias usadas
+
+:lock: Em progresso...
+
+## Iterações
+
+:lock: Em progresso...
+
 # Como rodar
+
+:lock: Em progresso...
+
+# Licença
 
 :lock: Em progresso...
