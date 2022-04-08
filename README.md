@@ -24,10 +24,13 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 
 :lock: Em progresso...
 
-# Como rodar
+## Como rodar
 
-:lock: Em progresso...
+* Front-end:
+    * :lock: Em progresso...
 
-# Licença
+* Back-end:
+    * :lock: Em progresso...
+## Licença
 
 :lock: Em progresso...
