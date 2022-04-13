@@ -31,6 +31,10 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 ## Como rodar
 
 :lock: Em progresso...
+
+## Como contribuir
+
+:lock: Em progresso...
 ## Licença
 
 :lock: Em progresso...
