@@ -12,11 +12,11 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 ## Equipe
 
 | ![Letícia Prado](https://i.imgur.com/3i4cvX3.png) | ![Allan Rodrigues](https://i.imgur.com/1HkFoOK.png) | ![Gustavo Pinho](https://i.imgur.com/8iMqLLi.png) | ![João Felipe](https://i.imgur.com/TnW0DC8.png) |
-
-| [Letícia Prado](https://github.com/leticiapcb) | [Allan Rodrigues](https://github.com/allanrr) | [Gustavo Pinho](https://github.com/gustavopsm) | [João Felipe](https://github.com/felipinas) |
 |:---------------------:|:---------------------:|:---------------------:|:---------------------:|
+| [Letícia Prado](https://github.com/leticiapcb) | [Allan Rodrigues](https://github.com/allanrr) | [Gustavo Pinho](https://github.com/gustavopsm) | [João Felipe](https://github.com/felipinas) |
 |lpcb2|adrvs|gpsm|jfss2|
 |--|--|--|--|
+
 
 ## Tecnologias usadas
 
@@ -31,6 +31,10 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 :lock: Em progresso...
 
 ## Como rodar
+
+:lock: Em progresso...
+
+## Como contribuir
 
 :lock: Em progresso...
 ## Licença
