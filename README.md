@@ -26,9 +26,9 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 * Back-end:
     * :lock: Em progresso...
 
-## Iterações
+## Notion
 
-:lock: Em progresso...
+* [Link para o Notion do projeto](https://fishy-teal-286.notion.site/IF977-CInbora-ce6aad2098ad423fa3d0336d83dd057c)
 
 ## Como rodar
 
