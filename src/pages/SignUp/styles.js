@@ -37,9 +37,13 @@ export const Main = styled.main`
     margin: -20px auto   auto;
     padding: 30px 20px 60px 20px;
 
-    background-color: #F5F5F5;
+    background-color: white;
 
     border-radius: 20px 20px 0 0;
+
+    @media (min-width: 800px) {
+        background-color: #F5F5F5;
+    }
 
     h2 {
         color: #C53F3F;
