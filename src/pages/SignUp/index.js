@@ -199,11 +199,12 @@ function SignUp() {
                     </section>
 
                     <Button
-                        content='Criar conta'
                         type='submit'
                         width='215px'
                         disabled={isSubmitButtonDisabled}
-                    />
+                    >
+                        Criar conta
+                    </Button>
                 </form>
             </Main>
         </Container>

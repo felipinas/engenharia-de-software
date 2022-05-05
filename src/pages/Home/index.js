@@ -1,6 +1,9 @@
 import React from "react"
-import { Container,  Wrapper, Title, FlexButtonContainer, Button, Moldura, SubTitle, FlexTitleContainer} from "./styles"
+
+import { Container,  Wrapper, Title, FlexButtonContainer, Moldura, SubTitle, FlexTitleContainer} from "./styles"
 import LogoHome from '../../assets/LogoHome.svg'
+
+import Button from '../../components/Button';
 
 
 const Home = () => {
@@ -14,9 +17,14 @@ const Home = () => {
                 <Moldura>
                     <img src={LogoHome} alt='LogoHome' />
                 </Moldura>
-                <FlexButtonContainer>  
-                    <Button type="button">Fazer login</Button>
-                    <Button type="button">Cadastro</Button>
+                <FlexButtonContainer>
+                    <Button>
+                        Fazer login 
+                    </Button>
+
+                    <Button>
+                        Cadastro
+                    </Button>
                 </FlexButtonContainer>
             </Wrapper>
         </Container>
