@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 
-import InputSignUp from "../../components/InputSignUp"
+import InputAuth from "../../components/InputAuth"
 import Button from "../../components/Button";
 
 import { Container, Header, Main } from "./styles";
@@ -105,8 +105,6 @@ function SignUp() {
 
     const onSubmitForm = e => {
         e.preventDefault();
-
-        // const exitsError = !Object.values(errors).every(error => error === "");
     }
 
     const isFormValid = () => {
@@ -156,7 +154,7 @@ function SignUp() {
                     </label>
 
                     <section>
-                        <InputSignUp
+                        <InputAuth
                             type='text'
                             icon='name'
                             placeholder='Nome completo'
@@ -166,7 +164,7 @@ function SignUp() {
                             required={true}
                         />
 
-                        <InputSignUp
+                        <InputAuth
                             type='email'
                             icon='email'
                             placeholder='E-mail'
@@ -176,7 +174,7 @@ function SignUp() {
                             required={true}
                         />
 
-                        <InputSignUp
+                        <InputAuth
                             type='text'
                             icon='phone'
                             placeholder='Telefone'
@@ -187,7 +185,7 @@ function SignUp() {
                             required={true}
                         />
 
-                        <InputSignUp
+                        <InputAuth
                             type='password'
                             icon='password'
                             placeholder='Senha'

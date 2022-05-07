@@ -17,7 +17,7 @@ const iconNames = {
     password: passwordIcon
 }
 
-function InputSignUp(props) {
+function InputAuth(props) {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const handleSeePassword = () => {
@@ -61,4 +61,4 @@ function InputSignUp(props) {
     );
 }
 
-export default InputSignUp;
+export default InputAuth;
