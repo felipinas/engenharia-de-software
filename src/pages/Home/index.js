@@ -4,6 +4,7 @@ import { Container,  Wrapper, Title, FlexButtonContainer, Moldura, SubTitle, Fle
 import LogoHome from '../../assets/LogoHome.svg'
 
 import Button from '../../components/Button';
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -18,13 +19,17 @@ const Home = () => {
                     <img src={LogoHome} alt='LogoHome' />
                 </Moldura>
                 <FlexButtonContainer>
-                    <Button>
-                        Fazer login 
-                    </Button>
+                    <Link to='/login'>
+                        <Button>
+                            Fazer login 
+                        </Button>
+                    </Link>
 
-                    <Button>
-                        Fazer cadastro
-                    </Button>
+                    <Link to='/signup'>
+                        <Button>
+                            Fazer cadastro
+                        </Button>
+                    </Link>
                 </FlexButtonContainer>
             </Wrapper>
         </Container>
