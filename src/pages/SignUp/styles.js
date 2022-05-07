@@ -34,7 +34,7 @@ export const Main = styled.main`
 
     flex: 1;
 
-    margin: -20px auto   auto;
+    margin: -20px auto 0 auto;
     padding: 30px 20px 60px 20px;
 
     background-color: white;
