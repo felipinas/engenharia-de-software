@@ -23,7 +23,7 @@ const Home = () => {
                     </Button>
 
                     <Button>
-                        Cadastro
+                        Fazer cadastro
                     </Button>
                 </FlexButtonContainer>
             </Wrapper>
