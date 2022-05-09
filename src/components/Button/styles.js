@@ -10,6 +10,7 @@ export const ButtonContainer = styled.button`
     background-color: #C53F3F;
     color: white;
     font-weight: bold;
+    font-size: 20px;
 
     cursor: pointer;
 
