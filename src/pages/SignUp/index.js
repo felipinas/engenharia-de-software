@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 
 import InputAuth from "../../components/InputAuth"
 import Button from "../../components/Button";
 
-import { Container, Header, Main } from "./styles";
+import { Container, Header, Main, Back } from "./styles";
 import { formatPhoneNumber, isEmailFromUFPE } from '../../utils';
 
 import cameraIcon from '../../assets/icons/camera.svg';
+
 
 function SignUp() {
     const [photo, setPhoto] = useState("");
@@ -204,6 +206,11 @@ function SignUp() {
                         Criar conta
                     </Button>
                 </form>
+
+                <Back>
+                    <span>Já possui uma conta?</span>
+                    <Link to='/login'>Faça o login</Link>
+                </Back>
             </Main>
         </Container>
     );
