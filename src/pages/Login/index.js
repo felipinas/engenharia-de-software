@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { Container } from './styles';
+import { Container, OpenModalButton } from './styles';
 
 import illustrationImg from '../../assets/illustrationWhiteCar.svg';
 import InputAuth from '../../components/InputAuth';
 import Button from '../../components/Button';
+import PasswordRecuperationModal from '../../components/PasswordRecuperationModal'
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -18,6 +19,8 @@ function Login() {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const [submitError, isSubmitError] = useState("")
+
+    const [isPasswordRecuperationModalOpen, setIsPasswordRecuperationModalOpen] = useState(false);
 
     const isFormValid = () => {
         const exitsError = !Object.values(errors).every(error => error === "");
@@ -64,6 +67,13 @@ function Login() {
         e.preventDefault();
     }
 
+    const handleOpenPasswordRecuperationModal = () => {
+        setIsPasswordRecuperationModalOpen(true)
+    }
+    const handleClosePasswordRecuperationModal = () => {
+        setIsPasswordRecuperationModalOpen(false)
+    }
+
     useEffect(() => {
         if (isFormValid()) {
             setIsButtonDisabled(false)
@@ -105,7 +115,13 @@ function Login() {
 
                         <p>{submitError}</p>
 
-                        <span>Esqueceu a senha?</span>
+                        <OpenModalButton onClick={handleOpenPasswordRecuperationModal}>
+                            Esqueceu a senha?
+                        </OpenModalButton>
+                        <PasswordRecuperationModal
+                            isOpen={isPasswordRecuperationModalOpen}
+                            onRequestClose={handleClosePasswordRecuperationModal}
+                        />
                     </section>
                     
                     <Button type='submit' width="70%" disabled={isButtonDisabled}>
