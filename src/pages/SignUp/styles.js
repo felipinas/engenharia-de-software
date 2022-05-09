@@ -90,3 +90,22 @@ export const Main = styled.main`
         }
     }
 `;
+
+export const Back = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 30px;
+
+    a {
+        text-decoration: none;
+        color: #C53F3F;
+
+        margin-top: 10px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+`;

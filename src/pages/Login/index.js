@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Container, OpenModalButton } from './styles';
+import { Container, OpenModalButton, Back } from './styles';
 
 import illustrationImg from '../../assets/illustrationWhiteCar.svg';
 import InputAuth from '../../components/InputAuth';
@@ -85,7 +86,7 @@ function Login() {
     return (
         <Container>
             <header>
-                <h1>Cinbora</h1>
+                <h1>CInbora</h1>
 
                 <img src={illustrationImg} alt="" />
             </header>
@@ -128,6 +129,11 @@ function Login() {
                         Entrar
                     </Button>
                 </form>
+
+                <Back>
+                    <span>Ainda não possui conta?</span>
+                    <Link to='/signup'>Faça o cadastro</Link>
+                </Back>
                 
             </main>
         </Container>
