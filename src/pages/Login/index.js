@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { Container } from './styles';
+import { Container, OpenModalButton } from './styles';
 
 import illustrationImg from '../../assets/illustrationWhiteCar.svg';
 import InputAuth from '../../components/InputAuth';
 import Button from '../../components/Button';
+import PasswordRecuperationModal from '../../components/PasswordRecuperationModal'
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -72,6 +73,15 @@ function Login() {
         }
     }, [errors])
 
+    const [ModalIsOpen, setIsOpen] = useState(false)
+
+    const handleopenmodal = () => {
+        setIsOpen(true)
+    }
+    const handleclosemodal = () => {
+        setIsOpen(false)
+    }
+
     return (
         <Container>
             <header>
@@ -105,7 +115,8 @@ function Login() {
 
                         <p>{submitError}</p>
 
-                        <span>Esqueceu a senha?</span>
+                        <OpenModalButton onClick={handleopenmodal}>Esqueceu a senha?</OpenModalButton>
+                        <PasswordRecuperationModal isOpen = {ModalIsOpen} onRequestClose={handleclosemodal}/>
                     </section>
                     
                     <Button type='submit' width="70%" disabled={isButtonDisabled}>

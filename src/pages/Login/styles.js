@@ -71,3 +71,20 @@ export const Container = styled.div`
         }
     }
 `;
+
+export const OpenModalButton = styled.h3`
+    height: 16px;
+    width: 129px;
+    left: 53px;
+    top: 545px;
+    border-radius: nullpx;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    cursor: pointer
+
+
+`
