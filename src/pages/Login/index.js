@@ -20,6 +20,8 @@ function Login() {
 
     const [submitError, isSubmitError] = useState("")
 
+    const [isPasswordRecuperationModalOpen, setIsPasswordRecuperationModalOpen] = useState(false);
+
     const isFormValid = () => {
         const exitsError = !Object.values(errors).every(error => error === "");
         return !exitsError & !!email & !!password;
@@ -65,6 +67,13 @@ function Login() {
         e.preventDefault();
     }
 
+    const handleOpenPasswordRecuperationModal = () => {
+        setIsPasswordRecuperationModalOpen(true)
+    }
+    const handleClosePasswordRecuperationModal = () => {
+        setIsPasswordRecuperationModalOpen(false)
+    }
+
     useEffect(() => {
         if (isFormValid()) {
             setIsButtonDisabled(false)
@@ -72,15 +81,6 @@ function Login() {
             setIsButtonDisabled(true)
         }
     }, [errors])
-
-    const [ModalIsOpen, setIsOpen] = useState(false)
-
-    const handleopenmodal = () => {
-        setIsOpen(true)
-    }
-    const handleclosemodal = () => {
-        setIsOpen(false)
-    }
 
     return (
         <Container>
@@ -115,8 +115,13 @@ function Login() {
 
                         <p>{submitError}</p>
 
-                        <OpenModalButton onClick={handleopenmodal}>Esqueceu a senha?</OpenModalButton>
-                        <PasswordRecuperationModal isOpen = {ModalIsOpen} onRequestClose={handleclosemodal}/>
+                        <OpenModalButton onClick={handleOpenPasswordRecuperationModal}>
+                            Esqueceu a senha?
+                        </OpenModalButton>
+                        <PasswordRecuperationModal
+                            isOpen={isPasswordRecuperationModalOpen}
+                            onRequestClose={handleClosePasswordRecuperationModal}
+                        />
                     </section>
                     
                     <Button type='submit' width="70%" disabled={isButtonDisabled}>

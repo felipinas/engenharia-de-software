@@ -1,13 +1,13 @@
+import { useState } from 'react'
 import Modal from "react-modal";
 
-import {Title, SubTitle, Box} from "./styles"
-import closeIcon from '../../assets/icons/close.svg';
 import InputAuth from "../InputAuth"
 import Button from "../Button";
-import {useState} from 'react'
 
-
+import { Title, SubTitle, Box } from "./styles"
 import { Container } from "../EmailConfirmModal/styles";
+
+import closeIcon from '../../assets/icons/close.svg';
 
 function PasswordRecuperationModal(props) {
 
@@ -44,12 +44,12 @@ function PasswordRecuperationModal(props) {
         <Container>
         
           <Title>
-          Esqueceu sua senha?
+            Esqueceu sua senha?
           </Title>
           <SubTitle>
-          Por favor, insira seu e-mail para receber um link de redefinição de senha
+            Por favor, insira seu e-mail para receber um link de redefinição de senha
           </SubTitle>
-        <InputAuth
+          <InputAuth
             type='text'
             icon='email'
             placeholder='E-mail'
@@ -57,16 +57,12 @@ function PasswordRecuperationModal(props) {
             value={email}
             error={errorsEmail}
             required={true}
-        >
-        
-        </InputAuth>
-        <Box>
-          <Button
-            width='60%'
-          >
-            Enviar link
-          </Button>
-        </Box>
+          />
+          <Box>
+            <Button width='60%'>
+              Enviar link
+            </Button>
+          </Box>
         </Container>
       </Modal>
   );

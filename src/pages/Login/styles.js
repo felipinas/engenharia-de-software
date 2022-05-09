@@ -72,7 +72,7 @@ export const Container = styled.div`
     }
 `;
 
-export const OpenModalButton = styled.h3`
+export const OpenModalButton = styled.span`
     height: 16px;
     width: 129px;
     left: 53px;
@@ -84,7 +84,9 @@ export const OpenModalButton = styled.h3`
     line-height: 16px;
     letter-spacing: 0.5px;
     text-align: left;
-    cursor: pointer
+    cursor: pointer;
 
-
+    &:hover {
+        text-decoration: underline;
+    }
 `
