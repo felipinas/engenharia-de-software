@@ -21,10 +21,11 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 ## Tecnologias usadas
 
 * Front-end:
-    * :lock: Em progresso...
+    * React
+    * Cypress (testes)
 
 * Back-end:
-    * :lock: Em progresso...
+    * Firebase
 
 ## Notion
 
@@ -32,7 +33,32 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 
 ## Como rodar
 
-:lock: Em progresso...
+1. Clonar o repositório.
+
+  * `git clone https://github.com/felipinas/engenharia-de-software.git`
+
+2. Abrir o terminal e baixar as dependências:
+
+  * `yarn install` or `npm install`
+
+3. Criar o .env com o seguinte modelo para se conectar ao Firebase:
+
+```
+
+```
+
+4. Agora, com as dependências baixadas, dar o start.
+
+ * `yarn start` or `npm start`
+
+5. Pronto! Agora você está rodando :D
+
+## Como rodar os testes
+
+1. Após realizar o procedimento do tópico Como rodar, haverá tais comandos:
+
+   * `yarn cypress`: rodar os testes no próprio terminal.
+   * `yarn cypress:open`: rodar os teste na interface disponibilizada pelo Cypress.
 
 ## Como contribuir
 
