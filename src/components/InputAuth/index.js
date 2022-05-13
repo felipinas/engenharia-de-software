@@ -36,6 +36,7 @@ function InputAuth(props) {
                     onChange={props.onChange}
                     value={props.value}
                     required={props.required}
+                    autoComplete="on"
                 />
 
                 {
