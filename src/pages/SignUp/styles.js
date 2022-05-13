@@ -74,7 +74,7 @@ export const Main = styled.main`
                 display: none;
             }
 
-            span {
+            p {
                 margin-top: 15px;
                 color: #A6A6A6;
             }
@@ -83,6 +83,12 @@ export const Main = styled.main`
         section {
             display: grid;
             gap: 30px;
+        }
+        
+        span {
+            color: #C53F3F;
+
+            margin-top: 12px;
         }
 
         button {
