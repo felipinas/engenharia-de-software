@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 
 import InputAuth from "../../components/InputAuth"
 import Button from "../../components/Button";
+import Loading from "../../pages/Loading";
 
 import { Container, Header, Main, Back } from "./styles";
 import { formatPhoneNumber, isEmailFromUFPE } from '../../utils';
+import { errorTranslator } from '../../utils/errorTranslator';
+import { useAuth } from '../../contexts/AuthContext';
 
 import cameraIcon from '../../assets/icons/camera.svg';
-
+import { app } from '../../firebase-config';
 
 function SignUp() {
-    const [photo, setPhoto] = useState("");
+    const [photoSource, setPhotoSource] = useState("");
+    const [photoToUpload, setPhotoToUpload] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -25,12 +29,20 @@ function SignUp() {
         password: ""
     });
 
-    const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState(true)
+    const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
+    const [submitError, setSubmitError] = useState("");
 
-    const onPhotoChange = e => {
-        // upload to firebase
-        // get url
-        // set url as photo state
+    const { signUp } = useAuth();
+    const navigate = useNavigate();
+
+    const onPhotoChange = async e => {
+        const file = e.target.files[0]
+        
+        const src = URL.createObjectURL(file);
+
+        setPhotoToUpload(file);
+        setPhotoSource(src);
     }
 
     const onNameChange = e => {
@@ -105,8 +117,27 @@ function SignUp() {
         }
     }
 
-    const onSubmitForm = e => {
+    const onSubmitForm = async e => {
         e.preventDefault();
+
+        if (isFormValid()) {
+            try {
+                setIsLoading(true);
+                
+                await signUp({
+                    photo: photoToUpload,
+                    name,
+                    email,
+                    phoneNumber: formatPhoneNumber(phone),
+                    password
+                });
+
+                navigate('/feed');
+            } catch(error) {
+                setIsLoading(false)
+                setSubmitError(errorTranslator(error))
+            }
+        }
     }
 
     const isFormValid = () => {
@@ -123,96 +154,105 @@ function SignUp() {
     }, [errors])
 
     return (
-        <Container>
-            <Header>
-                <h1>
-                    CInbora
-                </h1>
-            </Header>
+        <>
+            {
+                isLoading ? <Loading /> : 
+                (
+                    <Container>
+                <Header>
+                    <h1>
+                        CInbora
+                    </h1>
+                </Header>
 
-            <Main>
-                <h2>
-                    Cadastre-se
-                </h2>
+                <Main>
+                    <h2>
+                        Cadastre-se
+                    </h2>
 
-                <form onSubmit={onSubmitForm}>
-                    <label htmlFor="photo">
-                        <Avatar
-                            alt={name}
-                            src={photo}
-                            sx={{ width: 100, height: 100, bgcolor: '#EBEBEB' }}
+                    <form onSubmit={onSubmitForm}>
+                        <label htmlFor="photo">
+                            <Avatar
+                                alt={name}
+                                src={photoSource}
+                                sx={{ width: 100, height: 100, bgcolor: '#EBEBEB' }}
+                            >
+                                <img src={cameraIcon} alt="Camera Icon" />
+                            </Avatar>
+
+                            <input
+                                type="file"
+                                name="photo"
+                                id="photo"
+                                onChange={onPhotoChange}
+                            />
+
+                            <p>Inserir foto</p>
+                        </label>
+
+                        <section>
+                            <InputAuth
+                                type='text'
+                                icon='name'
+                                placeholder='Nome completo'
+                                onChange={onNameChange}
+                                value={name}
+                                error={errors.name}
+                                required={true}
+                            />
+
+                            <InputAuth
+                                type='email'
+                                icon='email'
+                                placeholder='E-mail'
+                                onChange={onEmailChange}
+                                value={email}
+                                error={errors.email}
+                                required={true}
+                            />
+
+                            <InputAuth
+                                type='text'
+                                icon='phone'
+                                placeholder='Telefone'
+                                onChange={onPhoneNumberChange}
+                                value={phone}
+                                mask={'(99) 9 9999-9999'}
+                                error={errors.phone}
+                                required={true}
+                            />
+
+                            <InputAuth
+                                type='password'
+                                icon='password'
+                                placeholder='Senha'
+                                onChange={onPasswordChange}
+                                value={password}
+                                error={errors.password}
+                                required={true}
+                            />
+                        </section>
+
+                        <span>{submitError}</span>
+
+                        <Button
+                            type='submit'
+                            width='215px'
+                            disabled={isSubmitButtonDisabled}
                         >
-                            <img src={cameraIcon} alt="Camera Icon" />
-                        </Avatar>
+                            Criar conta
+                        </Button>
+                    </form>
 
-                        <input
-                            type="file"
-                            name="photo"
-                            id="photo"
-                            onChange={onPhotoChange}
-                        />
-
-                        <span>Inserir foto</span>
-                    </label>
-
-                    <section>
-                        <InputAuth
-                            type='text'
-                            icon='name'
-                            placeholder='Nome completo'
-                            onChange={onNameChange}
-                            value={name}
-                            error={errors.name}
-                            required={true}
-                        />
-
-                        <InputAuth
-                            type='email'
-                            icon='email'
-                            placeholder='E-mail'
-                            onChange={onEmailChange}
-                            value={email}
-                            error={errors.email}
-                            required={true}
-                        />
-
-                        <InputAuth
-                            type='text'
-                            icon='phone'
-                            placeholder='Telefone'
-                            onChange={onPhoneNumberChange}
-                            value={phone}
-                            mask={'(99) 9 9999-9999'}
-                            error={errors.phone}
-                            required={true}
-                        />
-
-                        <InputAuth
-                            type='password'
-                            icon='password'
-                            placeholder='Senha'
-                            onChange={onPasswordChange}
-                            value={password}
-                            error={errors.password}
-                            required={true}
-                        />
-                    </section>
-
-                    <Button
-                        type='submit'
-                        width='215px'
-                        disabled={isSubmitButtonDisabled}
-                    >
-                        Criar conta
-                    </Button>
-                </form>
-
-                <Back>
-                    <span>Já possui uma conta?</span>
-                    <Link to='/login'>Faça o login</Link>
-                </Back>
-            </Main>
-        </Container>
+                    <Back>
+                        <span>Já possui uma conta?</span>
+                        <Link to='/login'>Faça o login</Link>
+                    </Back>
+                </Main>
+            </Container>
+                )
+            }
+        </>  
     );
 }
 
