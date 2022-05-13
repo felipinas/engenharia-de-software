@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Container, OpenModalButton, Back } from './styles';
 
-import illustrationImg from '../../assets/illustrationWhiteCar.svg';
 import InputAuth from '../../components/InputAuth';
 import Button from '../../components/Button';
 import PasswordRecuperationModal from '../../components/PasswordRecuperationModal'
+import Loading from '../Loading';
+
+import { useAuth } from '../../contexts/AuthContext';
+import { errorTranslator } from '../../utils/errorTranslator';
+
+import illustrationImg from '../../assets/illustrationWhiteCar.svg';
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -19,9 +24,13 @@ function Login() {
 
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-    const [submitError, isSubmitError] = useState("")
+    const [submitError, setSubmitError] = useState("")
 
     const [isPasswordRecuperationModalOpen, setIsPasswordRecuperationModalOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false)
+
+    const navigate = useNavigate();
+    const { login } = useAuth();
 
     const isFormValid = () => {
         const exitsError = !Object.values(errors).every(error => error === "");
@@ -64,8 +73,19 @@ function Login() {
         }
     }
 
-    const onSubmitForm = e => {
+    const onSubmitForm = async e => {
         e.preventDefault();
+
+        try {
+            setIsLoading(true);
+
+            await login(email, password);
+
+            navigate('/feed')
+        } catch (error) {
+            setIsLoading(false);
+            setSubmitError(errorTranslator(error));
+        }
     }
 
     const handleOpenPasswordRecuperationModal = () => {
@@ -84,59 +104,66 @@ function Login() {
     }, [errors])
 
     return (
-        <Container>
-            <header>
-                <h1>CInbora</h1>
+        <>
+            {
+                isLoading ? <Loading /> : 
+                (
+                    <Container>
+                        <header>
+                            <h1>CInbora</h1>
 
-                <img src={illustrationImg} alt="" />
-            </header>
+                            <img src={illustrationImg} alt="" />
+                        </header>
 
-            <main>
-                <h2>Login</h2>
-                
-                <form onSubmit={onSubmitForm}>
-                    <section>
-                        <InputAuth
-                            type='email'
-                            icon={'email'}
-                            value={email}
-                            placeholder='E-mail'
-                            error={errors.email}
-                            onChange={onEmailChange}
-                        />
+                        <main>
+                            <h2>Login</h2>
+                            
+                            <form onSubmit={onSubmitForm}>
+                                <section>
+                                    <InputAuth
+                                        type='email'
+                                        icon={'email'}
+                                        value={email}
+                                        placeholder='E-mail'
+                                        error={errors.email}
+                                        onChange={onEmailChange}
+                                    />
 
-                        <InputAuth
-                            type='password'
-                            icon={'password'}
-                            value={password}
-                            placeholder='Senha'
-                            error={errors.password}
-                            onChange={onPasswordChange}
-                        />
+                                    <InputAuth
+                                        type='password'
+                                        icon={'password'}
+                                        value={password}
+                                        placeholder='Senha'
+                                        error={errors.password}
+                                        onChange={onPasswordChange}
+                                    />
 
-                        <p>{submitError}</p>
+                                    <p>{submitError}</p>
 
-                        <OpenModalButton onClick={handleOpenPasswordRecuperationModal}>
-                            Esqueceu a senha?
-                        </OpenModalButton>
-                        <PasswordRecuperationModal
-                            isOpen={isPasswordRecuperationModalOpen}
-                            onRequestClose={handleClosePasswordRecuperationModal}
-                        />
-                    </section>
-                    
-                    <Button type='submit' width="70%" disabled={isButtonDisabled}>
-                        Entrar
-                    </Button>
-                </form>
+                                    <OpenModalButton onClick={handleOpenPasswordRecuperationModal}>
+                                        Esqueceu a senha?
+                                    </OpenModalButton>
+                                    <PasswordRecuperationModal
+                                        isOpen={isPasswordRecuperationModalOpen}
+                                        onRequestClose={handleClosePasswordRecuperationModal}
+                                    />
+                                </section>
+                                
+                                <Button type='submit' width="70%" disabled={isButtonDisabled}>
+                                    Entrar
+                                </Button>
+                            </form>
 
-                <Back>
-                    <span>Ainda não possui conta?</span>
-                    <Link to='/signup'>Faça o cadastro</Link>
-                </Back>
-                
-            </main>
-        </Container>
+                            <Back>
+                                <span>Ainda não possui conta?</span>
+                                <Link to='/signup'>Faça o cadastro</Link>
+                            </Back>
+                            
+                        </main>
+                    </Container>
+                )
+            }
+        </>
     );
 }
 
