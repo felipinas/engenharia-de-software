@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar';
 
 import EmailConfirmModal from '../../components/EmailConfirmModal';
 import Header from '../../components/Header';
@@ -8,24 +6,19 @@ import Header from '../../components/Header';
 import { useAuth } from '../../contexts/AuthContext';
 
 import { Container } from './styles';
-import cameraIcon from '../../assets/icons/camera.svg';
-
+import Search from '../../components/Search';
 
 function Feed() {
   const [isEmailConfirmModalOpen, setIsEmailConfirmModalOpen] = useState(true);
-  const { currentUser, logout } = useAuth();
-  const navigate = useNavigate();
+  const [searchFrom, setSearchFrom] = useState('');
+  const [searchTo, setSearchTo] = useState('');
+
+  const { currentUser/* , logout */ } = useAuth();
 
   const handleCloseEmailConfirmModal = () => setIsEmailConfirmModalOpen(false);
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/')
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const onSearchFromChange = e => setSearchFrom(e.target.value);
+  const onSearchToChange = e => setSearchTo(e.target.value);
 
   return (
     <>
@@ -35,18 +28,14 @@ function Feed() {
             <>
               <Header />
               <Container>
-                <Avatar
-                  alt={currentUser.displayName}
-                  src={currentUser.photoURL}
-                  sx={{ width: 100, height: 100, bgcolor: '#EBEBEB', zIndex: -1 }}
-                >
-                  <img src={cameraIcon} alt="Camera Icon" />
-                </Avatar>
-                  
-                <h1>Olá, {currentUser.displayName}</h1>
-                <p>Em breve, teremos mais novidades...</p>
-
-                <span onClick={handleLogout}>Deslogar</span>
+                <section>
+                  <Search
+                    from={searchFrom}
+                    to={searchTo}
+                    onSearchFromChange={onSearchFromChange}
+                    onSearchToChange={onSearchToChange}
+                  />
+                </section>
               </Container>
             </>
           ) :

@@ -1,27 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    padding: 20px 0;
 
-  h1, p {
-    text-align: center;
-  }
+    margin: 0px 16px;
 
-  h1 {
-    margin-top: 24px;
-  }
-  
-  p {
-    margin: 12px 0;
-  }
-
-  span {
-    text-decoration: underline;
+    border-bottom: 1px solid #EBEBEB;
   }
 `;
