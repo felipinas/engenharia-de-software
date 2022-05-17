@@ -45,8 +45,11 @@ export const Nav = styled.nav`
 
         border-radius: 0px 10px 10px 0px;
 
-        li:nth-child(2) {
+        li:nth-child(2), li:last-child {
             border-top: 1px solid #EBEBEB;
+        }
+
+        li:nth-child(2) {
             border-bottom: 1px solid #EBEBEB;
         }
 
@@ -57,13 +60,17 @@ export const Nav = styled.nav`
             padding: 12px 10px;
 
             font-size: 20px;
+            color: #37474F;
+            
+            text-decoration: none;
 
             cursor: pointer;
 
-            
+            img {
+                margin-right: 20px;
+            }
 
             a {
-                margin-left: 20px;
                 text-decoration: none;
                 color: #37474F;
             }

@@ -12,6 +12,8 @@ import SignUp from './pages/SignUp';
 import Feed from "./pages/Feed";
 
 import { useAuth } from './contexts/AuthContext';
+import MyRides from "./pages/MyRides";
+import Profile from "./pages/Profile";
 
 function PrivateRoute({ children }) {
   const { currentUser } = useAuth();
@@ -39,6 +41,18 @@ function Routes() {
         <Route exact path="/feed" element={
           <PrivateRoute>
             <Feed />
+          </PrivateRoute>
+        } />
+
+        <Route exact path="/my-rides" element={
+          <PrivateRoute>
+            <MyRides />
+          </PrivateRoute>
+        } />
+
+        <Route exact path="/profile" element={
+          <PrivateRoute>
+            <Profile />
           </PrivateRoute>
         } />
 
