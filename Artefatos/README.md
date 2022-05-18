@@ -24,17 +24,21 @@
 * [Atas das reuniões realizadas](https://fishy-teal-286.notion.site/Atas-das-reuni-es-cbfb612aebc0490ead6c10dba8d39c16)
 * [Postmortem da Iteração N](https://fishy-teal-286.notion.site/Postmortem-2-c9d86065ee994772a270d11414cb588e)
 
-<!-- ## Iteração 3
+## Iteração 3
 
-* [Finalização do desenvolvimento com documentação clara, objetiva, conduzindo qualquer pessoa a montar o ambiente corretamente e contribuir com o projeto]()
-* [Histórias definidas, claras, concisas, com entrega de valor bem definida]()
-* [Ambiente de versionamento atuante (com commits frequentes)]()
-* [Board Kanban (Issue tracker) atualizado]()
-* [TDD experimentado e usado]()
-* [Criação de testes fim-a-fim automatizados funcionando com atenção para Cobertura dos testes]()
-* [Integração Contínua e possibilidade de Entregas frequentes]()
-* [Última entrega: deploy de mais algumas HU's]()
-* [Screencast curto (até 3 minutos) de utilização do produto (contendo legenda ou voz]()
-* [Apresentação do projeto (pitch) em formato PDF]()
-* [Atas das reuniões realizadas]()
-* [Postmortem da Última Iteração]() -->
+* Finalização do desenvolvimento com documentação clara, objetiva, conduzindo qualquer pessoa a montar o ambiente corretamente e contribuir com o projeto
+    * [Notion](https://fishy-teal-286.notion.site/Documenta-o-de-c-digo-3a8f42a6de774433b89f4805c4761913)
+    * [GitHub](https://github.com/felipinas/engenharia-de-software)
+* [Histórias definidas, claras, concisas, com entrega de valor bem definida](https://fishy-teal-286.notion.site/User-stories-d99778e82f3643caabab7862e080302f)
+* [Ambiente de versionamento atuante (com commits frequentes)](https://github.com/felipinas/engenharia-de-software/commits/develop)
+* [Board Kanban (Issue tracker) atualizado](https://fishy-teal-286.notion.site/Itera-o-3-66b5b02fc12e4c8e9853104dfcf244a4)
+* [TDD experimentado e usado](https://github.com/felipinas/engenharia-de-software/tree/develop/cypress)
+* [Criação de testes fim-a-fim automatizados funcionando com atenção para Cobertura dos testes](https://github.com/felipinas/engenharia-de-software/tree/develop/cypress)
+* Integração Contínua e possibilidade de Entregas frequentes
+    * De forma geral, a integração era contínua, já que os pull request eram realizados e aceitos constantemente, resultando em sempre uma versão mais atual do código, evitando conflitos.
+    * Com o deploy automático por meio do Netlify, conseguimos ver tanto a develop em deploy (principal branch), quanto para cada pull request era criado um deploy, possibilitando validação da nova feature de maneira mais fácil, por exemplo.
+* [Última entrega: deploy de mais algumas HU's](https://cinbora.netlify.app/feed)
+<!-- * [Screencast curto (até 3 minutos) de utilização do produto (contendo legenda ou voz)]()
+* [Apresentação do projeto (pitch) em formato PDF]() -->
+* [Atas das reuniões realizadas](https://fishy-teal-286.notion.site/Atas-das-reuni-es-cbfb612aebc0490ead6c10dba8d39c16)
+* [Postmortem da Última Iteração](https://fishy-teal-286.notion.site/Postmortem-3-8c9148232d634b1f845e527d682a3abc)
