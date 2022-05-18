@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Feed from "./pages/Feed";
+import CreateRide from "./pages/CreateRide"
 
 import { useAuth } from './contexts/AuthContext';
 import MyRides from "./pages/MyRides";
@@ -41,6 +42,12 @@ function Routes() {
         <Route exact path="/feed" element={
           <PrivateRoute>
             <Feed />
+          </PrivateRoute>
+        } />
+
+        <Route exact path="/create-ride" element={
+          <PrivateRoute>
+            <CreateRide />
           </PrivateRoute>
         } />
 
