@@ -64,6 +64,14 @@ function Header() {
 
                                 <li>
                                     <img src={carIcon} alt="" />
+                                    <Link to="/create-ride">
+                                        Criar Carona
+                                    </Link>
+                                    
+                                </li>
+
+                                <li>
+                                    <img src={carIcon} alt="" />
                                     <Link to="/my-rides">
                                         Minhas caronas
                                     </Link>
