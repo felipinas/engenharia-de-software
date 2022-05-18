@@ -30,13 +30,18 @@ export const HeaderInfo = styled.div`
          
         h1 {
             margin-left: 15px;
-            font-size: 20px;
+            font-size: 18px;
             word-break: break-word;
         }
     }
 
     div:nth-child(2) {
-        padding: 5px 23px;
+        display: flex;
+        justify-content: center;
+        min-width: 100px;
+
+        padding: 5px 0;
+        margin-left: 20px;
 
         background: rgba(104, 187, 90, 0.39);
         border-radius: 7px;
