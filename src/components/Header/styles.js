@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
     position: sticky;
     top: 0;
 
@@ -74,6 +73,10 @@ export const Nav = styled.nav`
                 text-decoration: none;
                 color: #37474F;
             }
+        }
+
+        a {
+            text-decoration: none;
         }
     }
 `;

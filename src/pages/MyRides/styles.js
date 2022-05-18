@@ -12,6 +12,10 @@ export const Container = styled.div`
         border-bottom: 1px solid #DBDBDB;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     button {
         display: flex;
         align-items: center;

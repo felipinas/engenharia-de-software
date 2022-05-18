@@ -1,6 +1,8 @@
 import Modal from "react-modal";
+import { Link } from 'react-router-dom';
 
 import closeIcon from '../../assets/icons/close.svg';
+import Button from "../Button";
 
 import { Container  } from "./styles";
 
@@ -28,6 +30,12 @@ function ConfirmNewRideModal(props) {
           <p>
             Sua carona foi criada com sucesso
           </p>
+          
+          <Link to="/my-rides">
+            <Button width="200px">
+              Ok!
+            </Button>
+          </Link>
         </Container>
       </Modal>
   );

@@ -32,7 +32,7 @@ export const userApi = {
             name,
             email,
             phoneNumber
-        })
+        });
 
         await sendEmailVerification(auth.currentUser);
     },

@@ -7,8 +7,14 @@ export const Container = styled.div`
     margin: 0 auto;
     padding: 20px;
 
-    border: 1px solid #EBEBEB;
+    border: 2px solid #EBEBEB;
     border-radius: 15px;
+
+    margin-bottom:  30px;
+
+    a {
+        text-decoration: none;
+    }
 `;
 
 export const HeaderInfo = styled.div`

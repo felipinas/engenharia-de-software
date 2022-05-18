@@ -68,6 +68,9 @@ const CreateRide = () => {
         <>
             <Header />
             <Container>
+                <section>
+                <h1>Minhas caronas</h1>
+                </section>
                 <form onSubmit={onSubmitForm}>
                     <PlaceInfo> 
                         <div>

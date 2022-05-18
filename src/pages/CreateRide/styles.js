@@ -1,21 +1,32 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    width: 90vw;
-    max-width: 600px;
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-    margin: 0 auto;
-    padding: 30px 40px;
+        padding: 30px 0 20px 0;
+        margin: 0 16px;
 
-    border: 1px solid #EBEBEB;
-    border-radius: 15px;
-
-    h2 {
-        font-size: 14px;
-        margin-bottom: 10px;
+        border-bottom: 1px solid #DBDBDB;
     }
 
     form {
+        width: 90vw;
+        max-width: 600px;
+
+        margin: 30px auto;
+        padding: 30px 40px;
+
+        border: 1px solid #EBEBEB;
+        border-radius: 15px;
+
+        h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
         textarea {
             width: 100% !important;
             height: 80px;

@@ -9,7 +9,7 @@ import { Container, InputContainer } from './styles';
 
 function Profile() {
     const { currentUser } = useAuth();
-    console.log(currentUser);
+    
     return (
         <>
             <Header />

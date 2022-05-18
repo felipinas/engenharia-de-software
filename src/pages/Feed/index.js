@@ -56,6 +56,7 @@ function Feed() {
                     <RideCard
                       driverPhoto={ride.user.photo}
                       driverName={ride.user.name}
+                      driverPhoneNumber={ride.user.phoneNumber}
                       price={ride.price}
                       from={ride.departure}
                       to={ride.destination}
@@ -64,7 +65,7 @@ function Feed() {
                     />
                   ))
                 }
-              </Container>
+              </Container> 
             </>
           ) :
           <EmailConfirmModal
