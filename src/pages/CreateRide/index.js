@@ -1,11 +1,12 @@
-import { PlaceInfo, Container, Table } from "./styles";
+import { PlaceInfo, Container, Table, RideValue } from "./styles";
 import circleIcon from '../../assets/icons/circle-black.svg';
 import dotsIcon from '../../assets/icons/dots.svg';
 import localIcon from '../../assets/icons/local.svg';
-import {  AddRide, GetRide } from "../../api/rides.api";
+import { AddRide } from "../../api/rides.api";
 import { useState } from 'react';
-import { form } from "@mui/material";
 import Header from '../../components/Header';
+
+import Button from '../../components/Button';
 
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -23,20 +24,9 @@ const CreateRide = () => {
         const { value } = e.target;
         setDeparture(value);
     }
-
-    const onDeparture_agendaChange = e => {
-        const { value } = e.target;
-        setDeparture_agenda(value);
-    }
-
     const onDestinationChange = e => {
         const { value } = e.target;
         setDestination(value);
-    }
-
-    const onDestination_agendaChange = e => {
-        const { value } = e.target;
-        setDestination_agenda(value);
     }
 
     const onExtra_info = e => {
@@ -64,74 +54,109 @@ const CreateRide = () => {
 
     return(
         <>
-        <Header />
-        <Container>
+            <Header />
+            <Container>
                 <form onSubmit={onSubmitForm}>
-                <PlaceInfo> 
-                    <div>
+                    <PlaceInfo> 
                         <div>
-                            <img src={circleIcon} alt="circle icon" />
-                            <span>{<input type="text" onChange={onDepartureChange}/>}</span>
+                            <div>
+                                <img src={circleIcon} alt="circle icon" />
+                                <input
+                                    type="text"
+                                    placeholder="Local de saída"
+                                    onChange={onDepartureChange}
+                                />
+                            </div>
+                            <div>
+                                <img src={dotsIcon} alt="" />
+                            </div>
+                            <div>
+                                <img src={localIcon} alt="location icon" />
+                                <input
+                                    type="text"
+                                    placeholder="Local de chegada"
+                                    onChange={onDestinationChange}
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <img src={dotsIcon} alt="" />
-                        </div>
-                        <div>
-                            <img src={localIcon} alt="location icon" />
-                            <span>{<input type="text" onChange={onDestinationChange}/>}</span>
-                        </div>
-                    </div>
-                </PlaceInfo>
-                    <div>
-                        <input type="text" onChange={onDeparture_agendaChange}/>
-                    </div>
-                    <div>
-                        <input type="text" onChange={onDestination_agendaChange}/>
-                    </div>
+                    </PlaceInfo>
+
                     <Table>
-                                <>
-                                    <h2>Horários</h2>
-                                    <table>
-                                        <tr>
-                                            <th></th>
-                                            <th>S</th>
-                                            <th>T</th>
-                                            <th>Q</th>
-                                            <th>Q</th>
-                                            <th>S</th>
-                                        </tr>
+                        <h2>Horários</h2>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>S</th>
+                                <th>T</th>
+                                <th>Q</th>
+                                <th>Q</th>
+                                <th>S</th>
+                            </tr>
 
-                                        <tr>
-                                            <th>Saída</th>
-                                            <td>9h</td>
-                                            <td>15h</td>
-                                            <td>15h</td>
-                                            <td>9h</td>
-                                            <td>15h</td>
-                                        </tr>
+                            <tr>
+                                <th>Saída</th>
+                                <td>
+                                   {/*  <input type="text" /> */}
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                            </tr>
 
-                                        <tr>
-                                            <th>Chegada</th>
-                                            <td>11h</td>
-                                            <td>17h</td>
-                                            <td>15h</td>
-                                            <td>11h</td>
-                                            <td>15h</td>
-                                        </tr>
-                                    </table>
-
-                                    <h2>Informações adicionais</h2>
-
-                                    <input type="text" onChange={onExtra_info}/>
-                                </>
+                            <tr>
+                                <th>Chegada</th>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                            </tr>
+                        </table>
                     </Table>
-                    <div>
-                        <input type="text" onChange={onPriceChange}/>
-                    </div>
 
-                    <button type="submit">Criar</button>
+                    <h2>Informações adicionais</h2>
+
+                    <textarea
+                        type="text"
+                        placeholder="Insira aqui rotas dos bairros em que passa ou informações que são importantes para você"
+                        onChange={onExtra_info}
+                    />
+                        
+                    <h2>Valor da carona</h2>
+
+                    <RideValue
+                        type="number"
+                        min={0}
+                        onChange={onPriceChange}
+                    />
+                        
+                    <Button width='70%' onClick={onSubmitForm}>
+                        Criar carona
+                    </Button>
                 </form>
-        </Container>
+            </Container>
         </>
 )
 }

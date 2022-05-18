@@ -20,7 +20,7 @@ function RideCard(props) {
             <HeaderInfo>
                 <div>
                     <Avatar
-                        src={''}
+                        src={props.driverPhoto}
                         variant="rounded"
                         sx={{
                             width: 60,

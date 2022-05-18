@@ -53,7 +53,9 @@ function Feed() {
 
                 {
                   rides.map(ride => (
-                    <RideCard 
+                    <RideCard
+                      driverPhoto={ride.user.photo}
+                      driverName={ride.user.name}
                       price={ride.price}
                       from={ride.departure}
                       to={ride.destination}
