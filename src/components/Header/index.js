@@ -40,7 +40,12 @@ function Header() {
                             color={'white'}
                         />
                     </div>
-                    <h1>CInbora</h1>
+                    <h1>
+                        CInbora
+                        <span>
+                            beta version
+                        </span>
+                    </h1>
                 </header>
                 
                 {

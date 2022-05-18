@@ -24,6 +24,12 @@ export const Container = styled.div`
             color: white;
             font-family: 'Titan One';
             font-weight: 300;
+
+            span {
+                font-size: 12px;
+                margin-left: 10px;
+                font-family: 'Ubuntu';
+            }
         }
     }
 `;
