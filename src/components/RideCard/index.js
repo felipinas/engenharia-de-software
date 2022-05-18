@@ -96,20 +96,20 @@ function RideCard(props) {
 
                                                 <tr>
                                                     <th>Saída</th>
-                                                    <td>9h</td>
-                                                    <td>15h</td>
-                                                    <td>15h</td>
-                                                    <td>9h</td>
-                                                    <td>15h</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
                                                 </tr>
 
                                                 <tr>
                                                     <th>Chegada</th>
-                                                    <td>11h</td>
-                                                    <td>17h</td>
-                                                    <td>15h</td>
-                                                    <td>11h</td>
-                                                    <td>15h</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
+                                                    <td>--</td>
                                                 </tr>
                                             </table>
 

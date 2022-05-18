@@ -181,6 +181,7 @@ const CreateRide = () => {
                     <RideValue
                         type="number"
                         min={0}
+                        placeholder='R$ 00,00'
                         onChange={onPriceChange}
                     />
                         
