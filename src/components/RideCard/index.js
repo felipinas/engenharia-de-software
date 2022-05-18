@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Avatar } from '@mui/material';
-import { Container, HeaderInfo, PlaceInfo, MoreRideInfos } from './styles';
+import { Container, HeaderInfo, PlaceInfo, MoreRideInfos, Button } from './styles';
 
 import circleIcon from '../../assets/icons/circle-black.svg';
 import dotsIcon from '../../assets/icons/dots.svg';
 import localIcon from '../../assets/icons/local.svg';
 import trashIcon from '../../assets/icons/trash.svg';
 import pencilIcon from '../../assets/icons/pencil.svg';
+import Wpp from '../../assets/icons/Wpp.svg';
 
 function RideCard(props) {
     const [isInfoVisible, setIsInfoVisible] = useState(false);
@@ -117,9 +118,10 @@ function RideCard(props) {
                             </span>
                         </MoreRideInfos>
 
-                        <button type='button'>
-                            Entrar em contato
-                        </button>
+                        <Button type='button'>
+                            <img src={Wpp} alt="wpp icon" />
+                            <span>contato</span>
+                        </Button>
                     </>
                 ) : null
             }
