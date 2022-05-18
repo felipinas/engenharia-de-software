@@ -1,13 +1,72 @@
 import styled from "styled-components"
 
+export const Container = styled.div`
+    width: 90vw;
+    max-width: 600px;
+
+    margin: 0 auto;
+    padding: 30px 40px;
+
+    border: 1px solid #EBEBEB;
+    border-radius: 15px;
+
+    h2 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    form {
+        textarea {
+            width: 100% !important;
+            height: 80px;
+            resize: none;
+
+            border-radius: 10px;
+            border: 1px solid #C7C7C7;
+
+            padding: 10px;
+            margin-bottom: 35px;
+
+            font-family: 'Ubuntu';
+
+            outline: none;
+        }
+
+        button {
+            display: block;
+
+            margin: 35px auto 0 auto;
+        }
+    }
+
+    
+`;
+
+export const RideValue = styled.input`
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid #C7C7C7;
+
+    padding: 6px 10px;
+
+    outline: none;
+`;
+
 export const PlaceInfo = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 0 0 23px;
-
     word-break: break-word;
+
+    input {
+        border: none;
+        border-bottom: 1px solid #C7C7C7;
+
+        outline: none;
+
+        padding: 5px 0;
+    }
 
     div:nth-child(1) {
         img {
@@ -46,25 +105,9 @@ export const PlaceInfo = styled.div`
         }
     }
 `;
-export const Container = styled.div`
-    width: 90vw;
-    max-width: 600px;
-
-    margin: 0 auto;
-    padding: 20px;
-
-    border: 1px solid #EBEBEB;
-    border-radius: 15px;
-`;
 
 export const Table = styled.div`
-    padding-left: 23px;
     margin-top: 25px;
-
-    h2 {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
 
     table {
         width: 100%;
@@ -78,6 +121,10 @@ export const Table = styled.div`
         border: 1px solid #EBEBEB;
 
         padding: 7px 0;
+    }
+
+    table td input {
+        width: 100%;
     }
 
     span, p {
