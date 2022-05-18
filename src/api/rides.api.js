@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where, doc, deleteDoc } from "firebase/firestore";
 import { db } from '../firebase-config';
 
 export function AddRide(rideData) {
@@ -33,7 +33,7 @@ export async function GetRides() {
     const querySnapshot = await getDocs(collection(db, "rides"));
 
     querySnapshot.forEach((doc) => {
-        allRides.push(doc.data());
+        allRides.push({...doc.data(), rideId: doc.id});
     });
 
     const allRidesWithUserData = [];
@@ -49,10 +49,30 @@ export async function GetRides() {
             userData.push(doc.data());
         })
 
-        allRidesWithUserData.push({ ...ride, user: {...userData[0]} })
+        if (!(userData.length === 0)) {
+            allRidesWithUserData.push({ ...ride, user: {...userData[0]} })
+        }
     }
 
-    console.log(allRidesWithUserData)
-
     return allRidesWithUserData;
+}
+
+export async function GetRidesById(id) {
+    const allRides = [];
+
+    const q = query(collection(db, "rides"), where("user_id", "==", id));
+
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+        allRides.push({...doc.data(), rideId: doc.id});
+    });
+
+    return allRides;
+}
+
+export async function deleteRide(id) {
+    const rideRef = doc(db, 'rides', id);
+
+    deleteDoc(rideRef);
 }

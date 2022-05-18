@@ -1,10 +1,32 @@
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import Header from '../../components/Header';
-import { Container } from './styles';
-import { Link, useNavigate } from 'react-router-dom';
+import RideCard from '../../components/RideCard';
 
 import plusIcon from '../../assets/icons/plus.svg';
 
+import { useAuth } from '../../contexts/AuthContext';
+
+import { GetRidesById } from '../../api/rides.api';
+
+import { Container } from './styles';
+
 function MyRides() {
+  const [userRides, setUserRides] = useState([]);
+
+  const { currentUser } = useAuth();
+
+  const getAllUserData = async () => {
+    const userRiders = await GetRidesById(currentUser.uid)
+
+    setUserRides(userRiders);
+  };
+
+  useEffect(() => {
+    getAllUserData()
+  }, [])
+
   return (
       <>
         <Header />
@@ -19,7 +41,23 @@ function MyRides() {
                 <span>Criar carona</span>
               </button>
             </Link>
-        </Container> 
+
+            {
+              userRides.map(ride => (
+                <RideCard
+                  key={ride.rideId}
+                  driverPhoto={currentUser.photoURL}
+                  driverName={currentUser.displayName}
+                  price={ride.price}
+                  from={ride.departure}
+                  to={ride.destination}
+                  rideId={ride.rideId}
+                  editable={true}
+                  moreInfo={false}
+                />
+              ))
+            }
+        </Container>
       </>
   );
 }

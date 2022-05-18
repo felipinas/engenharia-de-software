@@ -21,10 +21,10 @@ function Header() {
 
     const handleLogout = async () => {
         try {
-        await logout();
-        navigate('/')
+            await logout();
+            navigate('/')
         } catch (error) {
-        console.log(error);
+            console.log(error);
         }
     };
 
@@ -47,27 +47,26 @@ function Header() {
                     isNavOpen ? (
                         <Nav>
                             <ul onClick={onClickMenu}>
-                                <li>
-                                    <img src={homeIcon} alt="" />
-                                    <Link to="/feed">
+                                <Link to="/feed">
+                                    <li>
+                                        <img src={homeIcon} alt="" />
                                         Ínicio
-                                    </Link>
-                                </li>
+                                    </li>
+                                </Link>
 
-                                <li>
-                                    <img src={profileIcon} alt="" />
-                                    <Link to="/profile">
+                                <Link to="/profile">
+                                    <li>
+                                        <img src={profileIcon} alt="" />
                                         Meu Perfil
-                                    </Link>
-                                    
-                                </li>
+                                    </li>
+                                </Link>
 
-                                <li>
-                                    <img src={carIcon} alt="" />
-                                    <Link to="/my-rides">
+                                <Link to="/my-rides">
+                                    <li>
+                                        <img src={carIcon} alt="" />
                                         Minhas caronas
-                                    </Link>
-                                </li>
+                                    </li>
+                                </Link>
                                 
                                 <li onClick={handleLogout}>
                                     <img src={logoutIcon} alt="" />
