@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Avatar } from '@mui/material';
 
 import Header from '../../components/Header';
@@ -5,11 +6,26 @@ import InputAuth from '../../components/InputAuth';
 import Button from '../../components/Button';
 import { useAuth } from '../../contexts/AuthContext';
 
+import { userApi } from '../../api/user.api';
+
 import { Container, InputContainer } from './styles';
+
 
 function Profile() {
     const { currentUser } = useAuth();
+
+    const [userData, setUserData] = useState([]);
     
+    const getUserInfo = async () => {
+        const userData = await userApi.getInfoById(currentUser.uid);
+
+        setUserData(userData);
+    }
+
+    useEffect(() => {
+        getUserInfo();
+    }, []);
+
     return (
         <>
             <Header />
@@ -42,19 +58,12 @@ function Profile() {
                             type='text'
                             icon='phone'
                             placeholder='Telefone'
-                            value={currentUser}
+                            value={userData.phoneNumber}
                             mask={'(99) 9 9999-9999'}
-                        />
-
-                        <InputAuth
-                            type='password'
-                            icon='password'
-                            placeholder='Senha'
-                            value={""}
                         />
                     </InputContainer>
 
-                    <Button>
+                    <Button disabled>
                         Editar perfil
                     </Button>
                 </main>

@@ -11,7 +11,6 @@ import trashIcon from '../../assets/icons/trash.svg';
 import pencilIcon from '../../assets/icons/pencil.svg';
 import Wpp from '../../assets/icons/Wpp.svg';
 import DeleteRideModal from '../DeleteRideModal';
-import { Link } from 'react-router-dom';
 
 function RideCard(props) {
     const [isInfoVisible, setIsInfoVisible] = useState(false);
@@ -113,9 +112,16 @@ function RideCard(props) {
                                                 </tr>
                                             </table>
 
-                                            <h2>Informações adicionais</h2>
+                                            {
+                                               props.extraInfo ? (
+                                                   <>
+                                                        <h2>Informações adicionais</h2>
 
-                                            <p>{props.extraInfo}</p>  
+                                                        <p>{props.extraInfo}</p>  
+                                                   </>
+                                               ) : null
+                                            }
+                                            
                                         </>
                                     ) : null
                                 }

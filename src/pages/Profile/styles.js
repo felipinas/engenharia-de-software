@@ -36,5 +36,9 @@ export const InputContainer = styled.div`
     gap: 30px;
 
     margin: 60px 0;
+
+    input {
+        pointer-events: none;
+    }
 `;
 
