@@ -44,7 +44,13 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 3. Criar o .env com o seguinte modelo para se conectar ao Firebase:
 
 ```
-
+REACT_APP_API_KEY=
+REACT_APP_AUTH_DOMAIN=
+REACT_APP_PROJECT_ID=
+REACT_APP_STORAGE_BUCKET=
+REACT_APP_MESSASING_SENDER_ID=
+REACT_APP_APP_ID=
+REACT_APP_MEASUREMENT_ID=
 ```
 
 4. Agora, com as dependências baixadas, dar o start.
@@ -62,7 +68,17 @@ Pretendemos conectar, com mais facilidade e rapidez, pessoas dispostas a oferece
 
 ## Como contribuir
 
-:lock: Em progresso...
+1. Realize o fork do projeto para seu GitHub.
+2. Clonar o repositório (processo semelhante ao do tópico "Como rodar", mas no seu repositório)
+3. Criar uma branch seguindo o padrão determinado no nosso [Notion](https://fishy-teal-286.notion.site/IF977-CInbora-ce6aad2098ad423fa3d0336d83dd057c).
+4. Realizer suas melhorias ou ajustes.
+5. Realizar o push das alterações, lembrando de seguir os padrões de commits.
+6. Após isso, realize o pull request no seu repositório.
+   * O título, sendo claro e direto, acaba ajudando bastante.
+   * A descrição seria interessante possuir um detalhamento das suas alterações e os motivos de cada uma.
+
+> Qualquer dúvida, recomendamos esse [material](https://www.youtube.com/watch?v=n0lSrPl9DTc)!
+
 ## Licença
 
 :lock: Em progresso...
