@@ -120,7 +120,7 @@ function RideCard(props) {
 
                         <Button type='button'>
                             <img src={Wpp} alt="wpp icon" />
-                            <span>contato</span>
+                            <span>entrar em contato</span>
                         </Button>
                     </>
                 ) : null

@@ -5,6 +5,7 @@ import localIcon from '../../assets/icons/local.svg';
 import { AddRide } from "../../api/rides.api";
 import { useState } from 'react';
 import Header from '../../components/Header';
+import ConfirmNewRideModal from '../../components/ConfirmNewRideModal'
 
 import Button from '../../components/Button';
 
@@ -17,6 +18,16 @@ const CreateRide = () => {
     const [destination_agenda, setDestination_agenda] = useState("");
     const [extra_info, setExtra_info] = useState("");
     const [price, setPrice] = useState("");
+
+    const [modalIsOpen, setIsModalOpen] = useState(false)
+
+    function handleOpenModal() {
+        setIsModalOpen(true)
+    }
+
+    function handleCloseModal() {
+        setIsModalOpen(false)
+    }
 
     const { currentUser } = useAuth();
 
@@ -50,6 +61,7 @@ const CreateRide = () => {
             price,
             user_id: currentUser.uid
         });
+        handleOpenModal()
     }
 
     return(
@@ -96,41 +108,58 @@ const CreateRide = () => {
                             <tr>
                                 <th>Saída</th>
                                 <td>
-                                   {/*  <input type="text" /> */}
                                     <select>
                                         <option value="">00h</option>
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                             </tr>
 
                             <tr>
                                 <th>Chegada</th>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" />
+                                    <select>
+                                        <option value="">00h</option>
+                                    </select>
                                 </td>
                             </tr>
                         </table>
@@ -157,6 +186,7 @@ const CreateRide = () => {
                     </Button>
                 </form>
             </Container>
+            <ConfirmNewRideModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}/>
         </>
 )
 }
