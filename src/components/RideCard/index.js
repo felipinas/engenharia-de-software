@@ -107,9 +107,7 @@ function RideCard(props) {
 
                                         <h2>Informações adicionais</h2>
 
-                                        <p>
-                                        Irei passar pelos bairros: X,Y e Z. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, neque sed condimentum tincidunt.
-                                        </p>  
+                                        <p>{props.extraInfo}</p>  
                                     </>
                                 ) : null
                             }

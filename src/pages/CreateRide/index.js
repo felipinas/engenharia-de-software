@@ -1,7 +1,9 @@
-import {  AddRide, GetRide } from "../../api/rides.api";
+import {  AddRide } from "../../api/rides.api";
 import { useState } from 'react';
-import { Container, form } from "@mui/material";
+import { Container } from "@mui/material";
 import Header from '../../components/Header';
+
+import { useAuth } from '../../contexts/AuthContext';
 
 const CreateRide = () => {
     const [departure, setDeparture] = useState("");
@@ -10,9 +12,8 @@ const CreateRide = () => {
     const [destination_agenda, setDestination_agenda] = useState("");
     const [extra_info, setExtra_info] = useState("");
     const [price, setPrice] = useState("");
-    const [user_id, setUser_id] = useState("");
 
-
+    const { currentUser } = useAuth();
 
     const onDepartureChange = e => {
         const { value } = e.target;
@@ -44,14 +45,17 @@ const CreateRide = () => {
         setPrice(value);
     }
 
-    const onUser_idChange = e => {
-        const { value } = e.target;
-        setUser_id(value);
-    }
-
     const onSubmitForm = e => {
         e.preventDefault()
-        AddRide(departure, departure_agenda, destination, destination_agenda, extra_info, price, user_id)
+        AddRide({
+            departure,
+            departure_agenda,
+            destination,
+            destination_agenda,
+            extra_info,
+            price,
+            user_id: currentUser.uid
+        });
     }
 
     return(
@@ -76,9 +80,6 @@ const CreateRide = () => {
                         </div>
                         <div>
                             <input type="text" onChange={onPriceChange}/>
-                        </div>
-                        <div>
-                            <input type="text" onChange={onUser_idChange}/>
                         </div>
 
                         <button type="submit">Criar</button>
